@@ -238,7 +238,86 @@ for (let i = 0; i < gameBoard.length; i++) {
 
 // While Loop
 
-while (j >= 5) {
-    console.log(j);
-    j++;
+const target = Math.floor(Math.random() * 10)
+let guess = Math.floor(Math.random() * 10)
+console.log("target", target)
+console.log("guess", guess)
+
+// Start with some condition, i.e. guess is not equal to target
+while (guess !== target) {
+    // inside the loop, update or attempt to make the condition false
+    console.log(`Target: ${target} Guess: ${guess}`);
+    guess = Math.floor(Math.random() * 10)
 }
+console.log(`Target: ${target} Guess: ${guess}`);
+console.log("Target and Guess now match.")
+
+// For...Of and For
+
+// for (variable of iterable) {
+//     statement
+// }
+
+let subreddits = [ "soccer", "popheads", "cringe", "books" ]
+
+for (let sub of subreddits) {
+    console.log("sub", sub)
+}
+
+for (let char of "cockadoodledoo") {
+    console.log(char.toUpperCase())
+}
+
+const magicSquare = [ [2,7,6], [9,5,1], [4,3,8] ]
+
+// loop through array and grab each individual array
+for (let row of magicSquare) {
+    // set a sum variable to store the math
+    let sum = 0
+    // loop through the nested arrays and add the numbers together and store in sum variable
+    // sum variable will be set back to zero after each loop
+    for(let num of row) {
+        sum += num
+    }
+    console.log(`${row} summed to ${sum}`)
+}
+
+const words1 = [ "mail", "milk", "bath", "black" ]
+const words2 = [ "box", "shake", "tub", "berry" ]
+
+for (let i = 0; i < words1.length; i++){
+    console.log(`${words1[i]}${words2[i]}`)
+}
+
+// For...Of with Objects
+
+const movieReviews = {
+    Arrival: 9.5,
+    Alien: 9,
+    Amelie: 8,
+    "In Bruges": 9,
+    Amadeus: 10,
+    "Kill Bill": 8,
+    "Little Miss Sunshine": 8.5,
+    Coraline: 7.5
+}
+
+console.log("key", Object.keys(movieReviews))
+console.log("value", Object.values(movieReviews))
+
+for(let movie of Object.keys(movieReviews)){
+    console.log(movie, movieReviews[movie])
+}
+
+const ratings = Object.values(movieReviews)
+let avg = 0
+for(let r of ratings) {
+    avg += r
+}
+avg /= ratings.length
+console.log(parseFloat(avg.toFixed(2)))
+
+let totalReviews = Object.keys(movieReviews).length
+let summedReviews = Object.values(movieReviews).reduce((accumulator, currentValue) => accumulator + currentValue)
+let avgReviews = summedReviews / totalReviews 
+console.log("avgReviews", parseFloat(avgReviews.toFixed(2)))

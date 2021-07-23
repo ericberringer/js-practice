@@ -268,7 +268,11 @@ for (let char of "cockadoodledoo") {
     console.log(char.toUpperCase())
 }
 
-const magicSquare = [ [2,7,6], [9,5,1], [4,3,8] ]
+const magicSquare = [ 
+    [2,7,6],
+    [9,5,1],
+    [4,3,8]
+]
 
 // loop through array and grab each individual array
 for (let row of magicSquare) {
@@ -321,3 +325,32 @@ let totalReviews = Object.keys(movieReviews).length
 let summedReviews = Object.values(movieReviews).reduce((accumulator, currentValue) => accumulator + currentValue)
 let avgReviews = summedReviews / totalReviews 
 console.log("avgReviews", parseFloat(avgReviews.toFixed(2)))
+
+// For...In
+// Use with Objects
+
+// for (variable in object) {
+//     statement
+// }
+
+const jeopardyWinnings = {
+    regularPlay: 2522700,
+    watsonChallenge: 300000,
+    tournamentOfChampions: 500000,
+    battleOfTheDecades: 100000,
+    streetJeopardy: 3000000
+}
+// loop through and print each key/property in jeopardyWinnings
+let totalWinnings = 0
+let numOfProps = Object.keys(jeopardyWinnings).length
+console.log("numOfProps", numOfProps)
+for(let prop in jeopardyWinnings) {
+    console.log(prop)
+    console.log(jeopardyWinnings[prop])
+    totalWinnings += jeopardyWinnings[prop]
+    let avgWinnings = totalWinnings / numOfProps
+    console.log("avgWinnings", avgWinnings)
+}
+console.log(`Ken Jennings Total Earnings: ${totalWinnings}`)
+
+// Functions

@@ -354,3 +354,97 @@ for(let prop in jeopardyWinnings) {
 console.log(`Ken Jennings Total Earnings: ${totalWinnings}`)
 
 // Functions
+
+const grumpus = () => {
+    console.log("Grumpus Function Call")
+}
+grumpus()
+
+
+const rollDie = () => {
+    let roll = Math.floor(Math.random() * 6) + 1
+    console.log(`Rolled: ${roll}`)
+}
+
+// const throwDice = () => {
+//     rollDie()
+//     rollDie()
+//     rollDie()
+//     rollDie()
+//     rollDie()
+//     rollDie()
+// }
+// throwDice()
+
+// Arguments
+
+const greet = (nickname) => {
+    console.log(`Hi ${nickname}`)
+}
+greet("Tim")
+
+const throwDice = (numRolls) => {
+    for(let i = 0; i < numRolls; i++){
+        rollDie()
+    }
+}
+throwDice(3)
+
+// Multiple Arguments
+
+const square = (num) => {
+    console.log("square", num * num)
+}
+square(3)
+
+const sum = (x, y) => {
+    console.log("sum", x + y)
+}
+sum(10, 200)
+
+const divide = (a, b) => {
+    return a / b
+}
+console.log(divide(100, 13))
+
+// Return Statement
+
+const colorArray = [ "blue", "red", "orange", "magenta" ]
+
+const containsPurple = (arr) => {
+    for(let color of arr){
+        if(color === "purple" || color === "magenta") {
+            return true
+        }
+    }
+    return false
+}
+
+// Function Practice
+
+containsPurple(colorArray)
+// call isValidPassword("pass", "doughboy8") in the console
+// Alternate way is to assign each condition to a variable i.e. const tooShort = password.length < 8 etc...
+const isValidPassword = (username, password) => {
+    if (
+        password.length < 8 ||
+        password.indexOf(username) !== -1 ||
+        password.indexOf(' ') !== -1
+        ){
+        return false
+    }
+    return "nice password"
+}
+
+const avgValue = (arr) => {
+    let total = 0
+    for(let num of arr) {
+        total += num
+    }
+    let arrayLength = arr.length
+    let average = total / arrayLength
+    return console.log(average)
+}
+
+const array = [ 75, 76, 80, 95, 100 ]
+avgValue(array)

@@ -436,6 +436,8 @@ const isValidPassword = (username, password) => {
     return "nice password"
 }
 
+// indexOf() returns a -1 if the index is not present
+
 const avgValue = (arr) => {
     let total = 0
     for(let num of arr) {
@@ -448,3 +450,148 @@ const avgValue = (arr) => {
 
 const array = [ 75, 76, 80, 95, 100 ]
 avgValue(array)
+
+const isPangram = (sentence) => {
+    let lowerCased = sentence.toLowerCase()
+    for (let char of "abcdefghijklmnopqrstuvwxyz") {
+        if(!lowerCased.includes(char)) {
+            return console.log(false)
+        }
+    }
+    return console.log(true)
+}
+
+isPangram("the five boxing wizards jump quickly")
+
+// Create a function that creates an object with a random value and random suit
+// This function allows you to pick a random index in an array.
+const pick = (arr) => {
+    const idx = Math.floor(Math.random() * arr.length)
+    return arr[idx]
+}
+
+const getCard = () => {
+    const values = [ "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" ]  
+    const suits = [ "clubs", "spades", "hearts", "diamonds" ]
+    // return statement is creating an object and setting a random index of the two arrays.
+    return console.log({ value: pick(values), suit: pick(suits) })
+}
+getCard()
+
+// Lexical Scope - Can access a variable in a nested funciton if the variable is defined in the parent function.
+// Function Expression writing a function within a variable.
+const sumFunc = function (x,y) {
+    return x + y
+}
+
+const addFunc = (x, y) => {
+    return x + y
+}
+
+const subtractFunc = (x,y) => {
+    return x - y
+}
+
+const multiplyFunc = (x,y) => {
+    return x * y
+}
+
+const divideFunc = (x,y) => {
+    return x / y
+}
+
+const operations = [ addFunc, subtractFunc, multiplyFunc, divideFunc ]
+
+for (let func of operations) {
+    let result = func(30, 5)
+    console.log(result)
+}
+
+// Set the value of a property on an object to a func.
+// Access the value with dot notation and pass in the args you would pass into the function itself
+const thing = {
+    doSomething: multiplyFunc
+}
+
+console.log(thing.doSomething(500,2))
+
+// Functions as Arguments
+
+// This function takes a function as an argument
+// and calls that passed function three times.
+const callThreeTimes = (someFunc) => {
+    someFunc()
+    someFunc()
+    someFunc()
+}
+
+const rage = () => {
+    console.log("Die Die Die")
+}
+
+const cry = () => {
+    console.log("Waaaaaaaah")
+}
+
+callThreeTimes(rage)
+
+// Function take two args, action will be a function,
+// and num will be the number of times the passed function is run via a for loop.
+const repeatNTimes = (action, num) => {
+    for(let i = 0; i < num; i++) {
+        action()
+    }
+}
+
+repeatNTimes(rage, 8)
+
+
+// Function takes two args, will pass in two functions rage and cry
+// rand variable is generating a random number between .00 - 1
+const pickOne = (f1, f2) => {
+    let rand = Math.random()
+    // Math.random will generate a random number between .00 and 1
+    console.log(rand)
+    // conditional, if rand is less than 0.5 print the first function passed as an arg, if not, pass the second function
+    if (rand < 0.5) {
+        f1()
+    } else {
+        f2()
+    }
+}
+
+pickOne(rage, cry)
+
+// multiplyBy takes a number as an arg, it returns a function
+const multiplyBy = (num) => {
+    return function (x) {
+        return x * num
+    }
+}
+// Store the previous function in a variable
+// That variable is a new function and will return the x * num function
+// the number passed in multiplyBy acts as the multiplier
+// Since the variable is a function we can pass in a number for x, and this will be mulitplied by the number passed into our multiplyBy function.
+const triple = multiplyBy(3)
+const double = multiplyBy(2)
+const halve = multiplyBy(.5)
+
+// type into the console
+triple(3)
+// 9
+double(6)
+// 12
+halve(100)
+// 50
+
+const makeBetweenFunc = (x, y) => {
+    return function (num){
+        return num >= x && num <= y
+    }
+}
+
+const check = makeBetweenFunc(0, 20)
+const bornBetween = makeBetweenFunc(1990, 2020)
+// type check() with an arg in the console
+check()
+bornBetween()

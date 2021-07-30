@@ -618,9 +618,50 @@ btn.addEventListener('click', () => {
 
 const numbers = [ 20, 21, 22, 23 ,24 ,25, 26, 27 ]
 
+// forEach can take an anonymous function that takes the element in an array plus the index as params, but don't need to pass the index.
+numbers.forEach((element, idx) => {
+    console.log(idx, element)
+})
+
 let total = 0
 numbers.forEach(element => {
     total += element
 })
 console.log(total)
 console.log("average", total / numbers.length)
+
+const printDouble = (n) => {
+    console.log(n * 2)
+}
+const printTriple = (n) => {
+    console.log(n * 3)
+}
+
+numbers.forEach(printDouble)
+numbers.forEach(printTriple)
+
+const books = [
+    {
+        title: "A Gentleman in Moscow",
+        rating: 5
+    },
+    {
+        title: "The Giver",
+        rating: 9
+    },
+    {
+        title: "Boot Man",
+        rating: 1.5
+    },
+]
+
+// The following two blocks of code give the same output.
+books.forEach(object => {
+    console.log(object.title.toUpperCase())
+})
+
+for(let book of books) {
+    console.log(book.title.toUpperCase())
+}
+
+// Map

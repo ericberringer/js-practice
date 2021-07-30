@@ -595,3 +595,32 @@ const bornBetween = makeBetweenFunc(1990, 2020)
 // type check() with an arg in the console
 check()
 bornBetween()
+
+// Callback Function - a function passed into another function
+// as an argument, which is then invoked inside the outer function.
+// setTimeout is a built in function, takes a function and milliseconds.
+
+// setTimeout(function () {
+//     alert("Bro")
+// }, 2000)
+
+const heyThere = () => {
+    alert("You Clicked Me.")
+}
+// # targets by id, . targets by class just like css.
+const btn = document.querySelector('#supButton')
+btn.addEventListener('click', () => {
+    alert("You are a good clicker.")
+})
+
+// forEach()
+// executes a provided function once for each array element.
+
+const numbers = [ 20, 21, 22, 23 ,24 ,25, 26, 27 ]
+
+let total = 0
+numbers.forEach(element => {
+    total += element
+})
+console.log(total)
+console.log("average", total / numbers.length)

@@ -665,3 +665,9 @@ for(let book of books) {
 }
 
 // Map
+
+const integers = [ 20, 21, 22, 23 ,24 ,25, 26, 27 ]
+
+const doubles = integers.map(dub => dub * 2)
+
+console.log(doubles)

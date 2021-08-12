@@ -664,10 +664,69 @@ for(let book of books) {
     console.log(book.title.toUpperCase())
 }
 
+// Array Methods
+
+// Implicit Return is when returning one expression, doesn't need curly braces
 // Map
 
 const integers = [ 20, 21, 22, 23 ,24 ,25, 26, 27 ]
+const words = [ 'asap', 'byob', 'rsvp', 'diy' ]
 
 const doubles = integers.map(dub => dub * 2)
 
 console.log(doubles)
+
+// map through array of numbers return an object
+// include a value property which will be a number in the array
+// add a property of isEven, checks if the number is even (true) or odd (false)
+// use modulo (remainder) and divide by 2 and check if it is equal to 0 to determine even or odd
+const evens = integers.map(num => {
+    return {
+        value: num,
+        isEven: num % 2 === 0
+    }
+})
+
+console.log(evens)
+
+const abbrevs = words.map(letter => letter.toUpperCase().split('').join('.'))
+console.log(abbrevs)
+
+const someBooks = [
+    {
+        title: "A Gentleman in Moscow",
+        rating: 5
+    },
+    {
+        title: "The Giver",
+        rating: 9
+    },
+    {
+        title: "Boot Man",
+        rating: 1.5
+    },
+]
+
+const titlesOnly = someBooks.map(title => title.title)
+console.log(titlesOnly)
+
+// Array.find
+// finds us the first match
+
+let movies = [
+    "The Fantastic Mr. Fox",
+    "Mr. and Mrs. Smith",
+    "Mrs. Doubtfire",
+    "Mr. Deeds"
+]
+
+// returns first movie that satisfies condition
+const mrMovies = movies.find(movie => movie.includes("Mr"))
+console.log(mrMovies)
+
+const mrsAtFront = movies.find(movie => movie.indexOf("Mrs") === 0)
+console.log(mrsAtFront)
+
+// Filter
+
+

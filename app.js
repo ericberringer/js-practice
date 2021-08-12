@@ -695,16 +695,24 @@ console.log(abbrevs)
 const someBooks = [
     {
         title: "A Gentleman in Moscow",
-        rating: 5
+        rating: 5,
+        genres: ['fantasy', 'horror']
     },
     {
         title: "The Giver",
-        rating: 9
+        rating: 9,
+        genres: ['science fiction']
     },
     {
         title: "Boot Man",
-        rating: 1.5
+        rating: 1.5,
+        genres: ['fantasy']
     },
+    {
+        title: "Man on Fire",
+        rating: 10,
+        genres: ['action', 'drama']
+    }
 ]
 
 const titlesOnly = someBooks.map(title => title.title)
@@ -729,4 +737,26 @@ console.log(mrsAtFront)
 
 // Filter
 
+const someNums = [ 20, 21, 22, 23 ,24 ,25, 26, 27 ]
 
+const odd = someNums.filter(odd => odd % 2 === 1)
+console.log(odd)
+
+const even = someNums.filter(even => even % 2 === 0)
+console.log(even)
+
+// someBooks array from a few lines above
+const goodBooks = someBooks.filter(b => b.rating > 7.3)
+console.log(goodBooks)
+
+const bookFilter = someBooks.filter(book => {
+    return book.genres.includes('science fiction') || book.genres.includes('horror')
+})
+console.log(bookFilter)
+
+const query = 'Man'
+const results = someBooks.filter(book => {
+    const title = book.title.toLowerCase()
+    return title.includes(query.toLowerCase())
+})
+console.log(results)

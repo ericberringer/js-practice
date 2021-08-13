@@ -1,0 +1,20 @@
+#supButton {
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #8F60BF;
+    color: white;
+    font-size: 1em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 25%;
+}
+
+.imgDiv {
+    display: flex;
+    justify-content: space-between;
+    border: dotted 2px purple;
+    margin: 20px 20px 0 20px;
+}
+
+.img {
+    width: 60px;
+}

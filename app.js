@@ -760,3 +760,35 @@ const results = someBooks.filter(book => {
     return title.includes(query.toLowerCase())
 })
 console.log(results)
+
+// Some & Every
+
+// array.some() method iterates through elements and checks if any
+// value in the array satisfies a condition.
+
+// array.every() method checks whether the elements in the array 
+// satisfy the boolean expression. If even a single value doesn't satisfy
+// the element, it returns false, otherwise it returns true.
+
+const someWords = [ 'dog', 'dig', 'log', 'bag', 'wag' ]
+
+const all3Lets = someWords.every(word => word.length >= 4)
+console.log("wordsHave3Letters", all3Lets)
+
+const endsInG = someWords.every(word => {
+    const last = word.length - 1
+    return word[last] === 'g'
+})
+console.log("endsInG", endsInG)
+
+const someStartsWithD = someWords.some(word => word[0] === 'd')
+console.log("someStartsWithD",someStartsWithD)
+
+const allStartsWithD = someWords.every(word => word[0] === 'd')
+console.log("allStartWithD", allStartsWithD)
+
+const ratingOver5 = someBooks.every(book => book.rating > 5)
+console.log("ratingOver5", ratingOver5)
+
+const any2Genres = someBooks.some(book => book.genres.length === 2)
+console.log("areThere2Genres", any2Genres)

@@ -792,3 +792,19 @@ console.log("ratingOver5", ratingOver5)
 
 const any2Genres = someBooks.some(book => book.genres.length === 2)
 console.log("areThere2Genres", any2Genres)
+
+// Sort
+
+const somePrices = [ 400.50, 3000, 99.99, 35.99, 12.00, 9500 ]
+
+const badSort = somePrices.slice().sort()
+const ascSort = somePrices.slice().sort((a,
+    b) => a - b)
+const descSort = somePrices.slice().sort((a,
+    b) => b - a)
+console.log("badSort", badSort)
+console.log("ascSort", ascSort)
+console.log("descSort", descSort)
+
+const sortByAscRating = someBooks.sort((a,b) => a.rating - b.rating)
+console.log("sortByAscendingRating",sortByAscRating)

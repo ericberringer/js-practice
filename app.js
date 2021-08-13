@@ -699,6 +699,11 @@ const someBooks = [
         genres: ['fantasy', 'horror']
     },
     {
+        title: "A Lady in Luxemborg",
+        rating: 5.5,
+        genres: ['fantasy', 'horror']
+    },
+    {
         title: "The Giver",
         rating: 9,
         genres: ['science fiction']
@@ -808,3 +813,60 @@ console.log("descSort", descSort)
 
 const sortByAscRating = someBooks.sort((a,b) => a.rating - b.rating)
 console.log("sortByAscendingRating",sortByAscRating)
+
+// Reduce
+// Takes an array of values, and reduces them down to a single value.
+
+const yourNums = [ 3, 4, 5, 6, 7 ]
+
+const product = yourNums.reduce((total, currentValue) => {
+    return total * currentValue
+})
+console.log("reduceMethod", product)
+
+const grades = [ 87, 64, 96, 88, 99, 73, 70, 64 ]
+const maxGrade = grades.reduce((max, curVal) => {
+    if(curVal > max) {
+        return curVal
+    } else {
+        return max
+    }
+})
+console.log("reduce|MaxGrade", maxGrade)
+
+// alt approach
+
+const maximumGrade = grades.reduce((max, currVal) => (
+    Math.max(max, currVal)
+))
+console.log("maxGrade|altReduceMethod", maximumGrade)
+
+const minGrade = grades.reduce((min, currVal) => {
+    return Math.min(min, currVal)
+})
+console.log("minGrad|reduce", minGrade)
+
+// Reduce also takes an initial value
+// Sum all elements in array starting from 1000
+const sumArrayFromANumber = grades.reduce((sum, currVal) => {
+    return sum + currVal
+}, 1000)
+console.log("InitialValue|Reduce", sumArrayFromANumber)
+
+// Tallying
+
+const votes = [ 'y', 'n', 'y', 'n', 'y', 'y', 'n', 'y', 'n' ]
+const someResults = votes.reduce((tally, vote) => {
+    tally[vote] = (tally[vote] || 0) + 1
+    return tally
+}, {})
+console.log("tallyReduce", someResults)
+
+const groupedByRatings = someBooks.reduce((groupedBooks, book) => {
+    // Math.floor to chop off the decimal (not rounding)
+    const rating = Math.floor(book.rating)
+    if(!groupedBooks[rating]) groupedBooks[rating] = []
+    groupedBooks[rating].push(book)
+    return groupedBooks
+})
+console.log("GroupedRatings|Reduce",groupedByRatings)

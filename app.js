@@ -816,6 +816,7 @@ console.log("sortByAscendingRating",sortByAscRating)
 
 // Reduce
 // Takes an array of values, and reduces them down to a single value.
+// reduce(accumulator, currentValue => accumlator + currentValue)
 
 const yourNums = [ 3, 4, 5, 6, 7 ]
 
@@ -870,3 +871,15 @@ const groupedByRatings = someBooks.reduce((groupedBooks, book) => {
     return groupedBooks
 })
 console.log("GroupedRatings|Reduce",groupedByRatings)
+
+// Default Parameters
+// Defualt Params need to come at the end of params list i.e. (x, y = 1, w = 'sup')
+// This function sets y = 1 if nothing is passed into the function
+// for y i.e. defParamFunc(3)
+const defParamFunc = (x, y = 1) => {
+    return x * y
+}
+ const greeting = (person, greeting = 'hi') => {
+     return `${greeting} ${person}!`
+ }
+ console.log(greeting("Tim"))

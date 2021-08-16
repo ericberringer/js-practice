@@ -933,3 +933,10 @@ const canineCatCombine = {
 console.log("canineCatCombine|Spread", canineCatCombine)
 
 // Rest
+// Taking multiple elements and putting them in an array
+// Rest Params Collects all remaining arguments into an actual array
+
+const multiply = (...nums) => (
+    nums.reduce((total, currVal) => total * currVal)
+)
+console.log(multiply(3,4,5))

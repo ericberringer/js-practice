@@ -883,3 +883,53 @@ const defParamFunc = (x, y = 1) => {
      return `${greeting} ${person}!`
  }
  console.log(greeting("Tim"))
+
+// Spread
+// Allows array to be expanded
+
+const arrayONums = [ 3, 4, 5, 6, 7, 33 ]
+console.log("Spread|Max Number", Math.max(...arrayONums))
+
+const giveMeFour = (a, b, c, d) => {
+    console.log("Spread")
+    console.log('a', a)
+    console.log('b', b)
+    console.log('c', c)
+    console.log('d', d)
+}
+
+const hues = [ 'purple', 'orange', 'brown', 'green' ]
+giveMeFour(...hues)
+
+const goat = 'GOAT'
+giveMeFour(...goat)
+
+// Spread, create a new array using an existing array
+
+const grizzlyBears = [ 'Hank', 'Toby', 'Steve' ]
+const blackBears = [ 'Chet', 'Mike', 'Gus'  ]
+
+const allBears = [ ...grizzlyBears, ...blackBears ]
+// New Array with a copy of both previous arrays
+console.log("allBears|Spread",allBears)
+
+// Spread in Object Literals
+// Copies properties from one object into another obj literal
+
+const canine = {
+    legs: 4,
+    hair: true
+}
+
+const cat = {
+    tail: true,
+    tongue: true
+}
+
+const canineCatCombine = {
+    ...canine,
+    ...cat
+}
+console.log("canineCatCombine|Spread", canineCatCombine)
+
+// Rest
